@@ -4,6 +4,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { StudyMode } from "./pages/StudyMode";
 import { SentenceParser } from "./components/parser/SentenceParser";
 import { ParagraphReader } from "./components/parser/ParagraphReader";
+import { Layout } from "./components/Layout";
 import { useAppStore } from "./store/appStore";
 
 // Mock Data imports
@@ -30,17 +31,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <main className="min-h-screen bg-background text-foreground font-sans">
-        <header className="border-b p-4 text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-primary">MemoriAI</h1>
-        </header>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/study/:deckId" element={<StudyMode />} />
-          <Route path="/parse-sentence" element={<SentenceParser />} />
-          <Route path="/read-paragraph" element={<ParagraphReader />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="study/:deckId" element={<StudyMode />} />
+          <Route path="parse-sentence" element={<SentenceParser />} />
+          <Route path="read-paragraph" element={<ParagraphReader />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

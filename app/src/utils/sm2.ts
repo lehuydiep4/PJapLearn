@@ -37,7 +37,7 @@ export function calculateSM2(rating: 1 | 2 | 3 | 4, currentData: SRSData): SRSDa
   } else {
     // Incorrect response
     repetition = 0;
-    interval = 1;
+    interval = 0; // 0 means 10 minutes
   }
 
   // Calculate new ease factor
@@ -48,9 +48,14 @@ export function calculateSM2(rating: 1 | 2 | 3 | 4, currentData: SRSData): SRSDa
 
   // Calculate next review date
   const nextDate = new Date();
-  nextDate.setDate(nextDate.getDate() + interval);
-  // Set to start of the day to avoid time-of-day strictness
-  nextDate.setHours(0, 0, 0, 0);
+  if (interval === 0) {
+    // 10 minutes from now
+    nextDate.setMinutes(nextDate.getMinutes() + 10);
+  } else {
+    nextDate.setDate(nextDate.getDate() + interval);
+    // Set to start of the day to avoid time-of-day strictness
+    nextDate.setHours(0, 0, 0, 0);
+  }
 
   return {
     interval,
