@@ -1,50 +1,47 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Dashboard } from "./pages/Dashboard";
+import { StudyMode } from "./pages/StudyMode";
+import { SentenceParser } from "./components/parser/SentenceParser";
+import { ParagraphReader } from "./components/parser/ParagraphReader";
+import { useAppStore } from "./store/appStore";
+
+// Mock Data imports
+import mockKanjiMaster from "./mocks/kanji_master.json";
+import mockVocabMaster from "./mocks/vocab_master.json";
+import mockDeck from "./mocks/deck_mock.json";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const { isInitialized, initializeApp } = useAppStore();
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
+  useEffect(() => {
+    if (!isInitialized) {
+      initializeApp({
+        kanji: mockKanjiMaster as any,
+        vocab: mockVocabMaster as any,
+        deck: mockDeck as any
+      });
+    }
+  }, [isInitialized, initializeApp]);
+
+  if (!isInitialized) {
+    return <div className="min-h-screen flex items-center justify-center">Loading Data...</div>;
   }
 
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+    <BrowserRouter>
+      <main className="min-h-screen bg-background text-foreground font-sans">
+        <header className="border-b p-4 text-center">
+          <h1 className="text-2xl font-bold tracking-tight text-primary">MemoriAI</h1>
+        </header>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/study/:deckId" element={<StudyMode />} />
+          <Route path="/parse-sentence" element={<SentenceParser />} />
+          <Route path="/read-paragraph" element={<ParagraphReader />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 

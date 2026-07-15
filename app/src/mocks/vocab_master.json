@@ -1,0 +1,16 @@
+{
+  "v_tenboudai": {
+    "word": "展望台",
+    "reading": "てんぼうだい",
+    "meaning": "Đài quan sát",
+    "kanjiIds": ["k_ten", "k_bou", "k_dai"],
+    "examples": ["展望台から景色を見る。 (Nhìn phong cảnh từ đài quan sát.)"]
+  },
+  "v_mizuumi": {
+    "word": "湖",
+    "reading": "みずうみ",
+    "meaning": "Hồ nước",
+    "kanjiIds": [],
+    "examples": ["大きい湖ですね。(Hồ lớn nhỉ.)"]
+  }
+}

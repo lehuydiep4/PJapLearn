@@ -1,0 +1,41 @@
+{
+  "deckId": "deck_mock_1",
+  "deckName": "Từ vựng N5 & N4",
+  "description": "Các từ vựng cơ bản",
+  "createdAt": "2026-07-12T00:00:00Z",
+  "lastStudied": "2026-07-12T00:00:00Z",
+  "cards": [
+    {
+      "itemId": "k_mizu",
+      "itemType": "kanji",
+      "srsData": {
+        "interval": 1,
+        "repetition": 1,
+        "easeFactor": 2.5,
+        "nextReviewDate": "2026-07-11T00:00:00Z"
+      }
+    },
+    {
+      "itemId": "v_tenboudai",
+      "itemType": "vocab",
+      "srsData": {
+        "interval": 0,
+        "repetition": 0,
+        "easeFactor": 2.5,
+        "nextReviewDate": "2026-07-10T00:00:00Z"
+      }
+    },
+    {
+      "itemId": "s_1",
+      "itemType": "sentence",
+      "customFront": "展望台から景色を見る。",
+      "customBack": "Nhìn phong cảnh từ đài quan sát.",
+      "srsData": {
+        "interval": 3,
+        "repetition": 2,
+        "easeFactor": 2.6,
+        "nextReviewDate": "2026-07-12T12:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "k_mizu": {
+    "kanji": "水",
+    "hanViet": "Thủy",
+    "onyomi": "スイ",
+    "kunyomi": "みず",
+    "meaning": "Nước",
+    "examples": ["水 (みず) - Nước", "水道 (すいどう) - Đường ống nước"]
+  },
+  "k_hi": {
+    "kanji": "火",
+    "hanViet": "Hỏa",
+    "onyomi": "カ",
+    "kunyomi": "ひ",
+    "meaning": "Lửa",
+    "examples": ["火 (ひ) - Lửa", "火山 (かざん) - Núi lửa"]
+  },
+  "k_ten": {
+    "kanji": "天",
+    "hanViet": "Thiên",
+    "onyomi": "テン",
+    "kunyomi": "あめ",
+    "meaning": "Trời",
+    "examples": ["天気 (てんき) - Thời tiết"]
+  },
+  "k_bou": {
+    "kanji": "望",
+    "hanViet": "Vọng",
+    "onyomi": "ボウ",
+    "kunyomi": "のぞ.む",
+    "meaning": "Nhìn xa, mong muốn",
+    "examples": ["希望 (きぼう) - Hy vọng"]
+  },
+  "k_dai": {
+    "kanji": "台",
+    "hanViet": "Đài",
+    "onyomi": "ダイ",
+    "kunyomi": "うてな",
+    "meaning": "Cái bệ, đài",
+    "examples": ["台風 (たいふう) - Bão"]
+  }
+}
